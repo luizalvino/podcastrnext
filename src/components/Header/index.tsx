@@ -17,7 +17,7 @@ export function Header() {
         </a>
       </Link>
 
-      <p>O melor para você ouvir, sempre</p>
+      <p>O melhor para você ouvir, sempre</p>
 
       <span>{currentDate}</span>
     </header>
