@@ -64,8 +64,12 @@ export function Player() {
 
   const episode = episodeList[currentEpisodeIndex];
 
+  const windowWidth = typeof window !== "undefined" ? window.innerWidth : 1080;
+
   return (
-    <div className={styles.playerContainer}>
+    <div
+      className={`${styles.playerContainer} ${!episode && styles.notPlaying}`}
+    >
       <header>
         <img src="/playing.svg" alt="Tocando agora" />
         <strong>Tocando agora</strong>
@@ -73,12 +77,14 @@ export function Player() {
 
       {episode ? (
         <div className={styles.currentEpisode}>
-          <Image
-            width={592}
-            height={592}
-            src={episode.thumbnail}
-            objectFit="cover"
-          />
+          <div className={styles.thumbnailWrapper}>
+            <Image
+              width={592}
+              height={592}
+              src={episode.thumbnail}
+              objectFit="cover"
+            />
+          </div>
           <strong>{episode.title}</strong>
           <span>{episode.members}</span>
         </div>
